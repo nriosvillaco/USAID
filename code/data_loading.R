@@ -11,4 +11,6 @@ df <- read.socrata(
 #save data
 
 filepath <- here("data/raw")
+
 save(df, file = paste0(filepath, "/", "raw_data.RData"))
+write.csv(df, file = paste0(filepath, "/", "raw_data.csv"), row.names = FALSE)
