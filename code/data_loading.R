@@ -3,10 +3,18 @@
 library(RSocrata)
 library(here)
 
+#timestamp before data loading
+start_time <- Sys.time()
+paste0("data loading started at:", start_time)
+
 df <- read.socrata(
-  "https://data.usaid.gov/resource/azij-hu6e.json?$limit=25", #limit to first 25 rows
-  app_token = "YOURAPPTOKENHERE",
+  "https://data.usaid.gov/resource/azij-hu6e.json", #to limit data: ?$limit=5000
+  app_token = "PASSWORD",
 )
+
+#timestamp after data loading
+data_loaded_time <- Sys.time()
+paste0("data loading complete at:", data_loaded_time)
 
 #save data
 
